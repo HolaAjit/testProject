@@ -159,32 +159,32 @@ export class HomePage {
     }
   }
 
-  captureImage() {
-    this.fileinput.nativeElement.click();
-  }
+  // captureImage() {
+  //   this.fileinput.nativeElement.click();
+  // }
    
-  handleFile(files: FileList) {
-    const file = files.item(0);
+  // handleFile(files: FileList) {
+  //   const file = files.item(0);
    
-    var img = new Image();
-    img.onload = () => {
-      this.canvasContext.drawImage(img, 0, 0, this.canvasElement.width, this.canvasElement.height);
-      const imageData = this.canvasContext.getImageData(
-        0,
-        0,
-        this.canvasElement.width,
-        this.canvasElement.height
-      );
-      const code = jsQR(imageData.data, imageData.width, imageData.height, {
-        inversionAttempts: 'dontInvert'
-      });
+  //   var img = new Image();
+  //   img.onload = () => {
+  //     this.canvasContext.drawImage(img, 0, 0, this.canvasElement.width, this.canvasElement.height);
+  //     const imageData = this.canvasContext.getImageData(
+  //       0,
+  //       0,
+  //       this.canvasElement.width,
+  //       this.canvasElement.height
+  //     );
+  //     const code = jsQR(imageData.data, imageData.width, imageData.height, {
+  //       inversionAttempts: 'dontInvert'
+  //     });
    
-      if (code) {
-        this.scanResult = code.data;
-        this.showQrToast();
-      }
-    };
-    img.src = URL.createObjectURL(file);
-  }
+  //     if (code) {
+  //       this.scanResult = code.data;
+  //       this.showQrToast();
+  //     }
+  //   };
+  //   img.src = URL.createObjectURL(file);
+  // }
 
 }
